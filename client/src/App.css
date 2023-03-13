@@ -44,3 +44,23 @@ img {
   border: 1px solid rgb(93, 228, 165);
   color: rgb(93, 228, 165);
 }
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  width: 250px;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.formBtn {
+  border: none;
+  padding: 10px;
+  background-color: coral;
+  color: white;
+}

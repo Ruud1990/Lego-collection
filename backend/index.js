@@ -9,7 +9,7 @@ const app = express();
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "United235748",
+  password: "",
   database: "lego_collection"
 });
 
@@ -52,6 +52,22 @@ app.delete("/sets/:id", (req, res) => {
   const q = " DELETE FROM sets WHERE id = ? ";
 
   db.query(q, [setId], (err, data) => {
+    if (err) return res.send(err);
+    return res.json(data);
+  });
+});
+
+app.put("/sets/:id", (req, res) => {
+  const setId = req.params.id;
+  const q = "UPDATE sets SET `name`= ?, `category`= ?, `price`= ? WHERE id = ?";
+
+  const values = [
+    req.body.name,
+    req.body.category,
+    req.body.price,
+  ];
+
+  db.query(q, [...values,setId], (err, data) => {
     if (err) return res.send(err);
     return res.json(data);
   });

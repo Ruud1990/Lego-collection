@@ -39,7 +39,7 @@ const Sets = () => {
             <p>{set.category}</p>
             <span>${set.price}</span>
             <button className='delete' onClick={() => handleDelete(set.id)}>Delete</button>
-            <button className='update'>Update</button>
+            <button className='update'><Link to={`/update/${set.id}`}>Update</Link></button>
           </div>
         ))}
     </div>    
